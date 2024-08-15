@@ -79,4 +79,14 @@ class TextStyles {
     fontWeight: FontWeightHelper.medium,
     fontSize: 15.sp,
   );
+  static TextStyle font18DarkBlueBold = TextStyle(
+    color: ColorMenager.darkBlue,
+    fontWeight: FontWeight.bold,
+    fontSize: 18.sp,
+  );
+  static TextStyle font12GrayReguler = TextStyle(
+    color: Colors.grey,
+    fontWeight: FontWeightHelper.regular,
+    fontSize: 12.sp,
+  );
 }

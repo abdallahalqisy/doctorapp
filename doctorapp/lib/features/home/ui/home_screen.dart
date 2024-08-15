@@ -1,3 +1,4 @@
+import 'package:doctorapp/features/home/ui/widgets/home_top_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,10 +7,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('data'),
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Container(
+          margin: EdgeInsets.fromLTRB(20, 16, 20, 28),
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [const HomeTopBar()],
+          ),
+        ),
       ),
-      body: Center(child: Text('data')),
     );
   }
 }
