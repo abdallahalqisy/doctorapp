@@ -1,13 +1,12 @@
-import 'package:doctorapp/core/helpers/spacing.dart';
-import 'package:doctorapp/core/theming/colors.dart';
+import 'package:doctorapp/features/home/data/models/specialization_response_model.dart';
+import 'package:doctorapp/features/home/ui/widgets/doctors_speciality_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../../../core/theming/styles.dart';
 
 class DoctorsSpecialityListView extends StatelessWidget {
-  const DoctorsSpecialityListView({super.key});
+  final List<SpecializationsData?> specializationsList;
+  const DoctorsSpecialityListView(
+      {super.key, required this.specializationsList});
 
   @override
   Widget build(BuildContext context) {
@@ -15,28 +14,11 @@ class DoctorsSpecialityListView extends StatelessWidget {
       height: 100.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 8,
+        itemCount: specializationsList.length,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsetsDirectional.only(start: index == 0 ? 0 : 24.w),
-            child: Column(
-              children: [
-                CircleAvatar(
-                  radius: 28,
-                  backgroundColor: ColorMenager.circl,
-                  child: SvgPicture.asset(
-                    'assets/svg/general_speciality.svg',
-                    height: 40.h,
-                    width: 40.w,
-                  ),
-                ),
-                verticalSpace(8),
-                Text(
-                  'speciality',
-                  style: TextStyles.Font12DarkBlueReguler,
-                ),
-              ],
-            ),
+          return DoctorsSpecialityListViewItem(
+            itemIndex: index,
+            specializationsData: specializationsList[index],
           );
         },
       ),
