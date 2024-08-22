@@ -1,6 +1,7 @@
 import 'package:doctorapp/core/routing/app_router.dart';
 import 'package:doctorapp/core/routing/routes.dart';
 import 'package:doctorapp/core/theming/colors.dart';
+import 'package:doctorapp/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,7 +15,7 @@ class DocApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       child: MaterialApp(
-        initialRoute: Routes.homeScreen,
+        initialRoute: isLoggedinUser ? Routes.homeScreen : Routes.loginScreen,
         debugShowCheckedModeBanner: false,
         title: 'DocApp',
         theme: ThemeData(

@@ -1,9 +1,10 @@
 import 'package:doctorapp/core/helpers/spacing.dart';
 
 import 'package:doctorapp/features/home/ui/widgets/doctor_blue_container.dart';
+import 'package:doctorapp/features/home/ui/widgets/doctors_list/doctors_bloc_builder.dart';
 import 'package:doctorapp/features/home/ui/widgets/doctors_speciality_see_all.dart';
 import 'package:doctorapp/features/home/ui/widgets/home_top_bar.dart';
-import 'package:doctorapp/features/home/ui/widgets/specialization_and_doctor_bloc_builder.dart';
+import 'package:doctorapp/features/home/ui/widgets/speciality_list/specialization_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,25 +24,16 @@ class HomeScreen extends StatelessWidget {
             children: [
               const HomeTopBar(),
               DoctorBlueContainer(),
-              verticalSpace(24.h),
+              verticalSpace(24),
               DoctorsSpecialitySeeAll(),
-              verticalSpace(18.h),
-              setupSpecializationsAndDoctorsBlocBuilder()
+              verticalSpace(18),
+              SpecializationBlocBuilder(),
+              verticalSpace(8),
+              const DoctorsBlocBuilder()
             ],
           ),
         ),
       ),
     );
-  }
-}
-
-class setupSpecializationsAndDoctorsBlocBuilder extends StatelessWidget {
-  const setupSpecializationsAndDoctorsBlocBuilder({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SpecializationAndDoctorBlocBuilder();
   }
 }
